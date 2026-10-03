@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
+<title>LEIA-ME — Registo de Grávidas</title>
+<style>
+  body { font-family: 'Segoe UI', system-ui, Arial, sans-serif; font-size: 17px; line-height: 1.55; color: #1b1f24; background: #fff; margin: 0; }
+  main { max-width: 52rem; margin: 0 auto; padding: 1.5rem 1.2rem 4rem; }
+  h1 { font-size: 1.8rem; margin-top: 0.5rem; }
+  h2 { font-size: 1.35rem; margin-top: 2.2rem; border-bottom: 2px solid #c9d0d9; padding-bottom: 0.2rem; }
+  h3 { font-size: 1.1rem; margin-top: 1.4rem; }
+  a { color: #0a5bab; }
+  :focus-visible { outline: 3px solid #b35c00; outline-offset: 2px; }
+  code, kbd { font-family: Consolas, monospace; background: #f3f5f8; padding: 0 0.25em; border-radius: 3px; }
+  .box { border-left: 5px solid; padding: 0.5rem 1rem; margin: 1rem 0; border-radius: 4px; }
+  .warn { background: #fff4d6; color: #5c3d00; }
+  .info { background: #e6f0fb; color: #0b3f73; }
+  .err { background: #fde8e8; color: #8a1919; }
+  nav ol { columns: 2; }
+  li { margin: 0.25rem 0; }
+  @media (max-width: 40rem) { nav ol { columns: 1; } }
+</style>
+</head>
+<body>
+<main>
+<h1>Registo de Grávidas — instruções</h1>
+<p>Esta aplicação substitui o Excel do registo de grávidas. É um único ficheiro (<code>index.html</code>) que se abre no <strong>Microsoft Edge</strong> (ou Google Chrome) a partir da pasta partilhada do OneDrive. Não instala nada, não precisa de servidor e funciona sem internet: os dados ficam apenas nesta pasta.</p>
+
+<nav aria-label="Índice">
+<h2 id="indice">Índice</h2>
+<ol>
+  <li><a href="#partilha">Partilhar a pasta (responsável)</a></li>
+  <li><a href="#pc">Preparar cada PC</a></li>
+  <li><a href="#primeira">Primeira utilização</a></li>
+  <li><a href="#modos">Modo completo e modo compatível</a></li>
+  <li><a href="#compativel">O que fazer no modo compatível</a></li>
+  <li><a href="#dia">Utilização diária</a></li>
+  <li><a href="#importar">Importar o Excel</a></li>
+  <li><a href="#conflitos">Resolver conflitos</a></li>
+  <li><a href="#consolidar">Consolidar</a></li>
+  <li><a href="#regras">Regras importantes</a></li>
+  <li><a href="#problemas">Resolução de problemas</a></li>
+</ol>
+</nav>
+
+<h2 id="partilha">1. Partilhar a pasta (só a pessoa responsável)</h2>
+<div class="box err"><p><strong>Partilhe a pasta <code>RegistoGravidas</code> apenas com pessoas nomeadas, nunca por link.</strong> A pasta contém dados de saúde.</p></div>
+<ol>
+  <li>No OneDrive (no browser, em <em>office.com</em> › OneDrive), selecione a pasta <code>RegistoGravidas</code> e escolha <strong>Partilhar</strong>.</li>
+  <li>Em <strong>Definições de partilha</strong>, escolha <strong>Pessoas específicas</strong> (não "Qualquer pessoa" nem "Pessoas na organização").</li>
+  <li>Escreva o nome ou email de cada colega da equipa, garanta que tem permissão <strong>Pode editar</strong> e envie.</li>
+  <li>Em <strong>Gerir acesso</strong>, confirme que não existe nenhum <em>link</em> de partilha. Se existir, remova-o.</li>
+  <li>Quando alguém sair da equipa, retire-lhe o acesso em <strong>Gerir acesso</strong>.</li>
+</ol>
+
+<h2 id="pc">2. Preparar cada PC (cada utilizador, uma vez)</h2>
+<ol>
+  <li>No OneDrive no browser, abra <strong>Partilhados</strong>, encontre a pasta <code>RegistoGravidas</code> e escolha <strong>Adicionar atalho a Os Meus Ficheiros</strong>.</li>
+  <li>Aguarde uns minutos. A pasta aparece no Explorador de Ficheiros, dentro de <em>OneDrive – (nome da organização)</em>.</li>
+  <li>No Explorador de Ficheiros, clique com o botão direito na pasta <code>RegistoGravidas</code> e escolha <strong>Manter sempre neste dispositivo</strong>. Isto é necessário para que o browser consiga ler os ficheiros mesmo sem internet.</li>
+  <li>Abra a pasta e faça duplo clique em <code>index.html</code>. Deve abrir no Edge. Se abrir noutro programa: botão direito › <strong>Abrir com</strong> › <strong>Microsoft Edge</strong>.</li>
+  <li>Sugestão: adicione a página aos Favoritos do Edge (<kbd>Ctrl</kbd>+<kbd>D</kbd>) para a abrir mais depressa.</li>
+</ol>
+
+<h2 id="primeira">3. Primeira utilização</h2>
+<ol>
+  <li>Indique o seu nome. Fica guardado só neste PC e aparece no histórico de alterações.</li>
+  <li>Carregue em <strong>Escolher pasta RegistoGravidas</strong> e selecione a pasta <code>RegistoGravidas</code> (a que tem o <code>index.html</code> e a subpasta <code>data</code>).</li>
+  <li>O Edge pergunta se permite que a página <strong>veja e edite</strong> ficheiros nesta pasta. Escolha <strong>Editar ficheiros</strong> / <strong>Permitir</strong>.</li>
+  <li>Nas vezes seguintes pode aparecer um botão <strong>Continuar com a pasta «RegistoGravidas»</strong>: basta um clique (e aceitar a permissão).</li>
+</ol>
+<p>Se o botão <em>Escolher pasta</em> não existir ou der erro, o PC não permite acesso direto a pastas: use o <a href="#compativel">modo compatível</a>.</p>
+
+<h2 id="modos">4. Modo completo e modo compatível</h2>
+<p>No topo da aplicação está sempre indicado o modo ativo:</p>
+<ul>
+  <li><strong>Modo completo</strong> (verde): a aplicação lê e grava diretamente na pasta e atualiza sozinha a cada 20 segundos e sempre que volta à janela.</li>
+  <li><strong>Modo compatível</strong> (amarelo): usado quando o browser ou as políticas do PC não permitem gravar na pasta. A aplicação funciona na mesma, mas cada gravação <strong>descarrega um pequeno ficheiro</strong> que tem de mover para a pasta.</li>
+</ul>
+<p>Os dois modos usam exatamente o mesmo formato e podem ser usados ao mesmo tempo por PCs diferentes.</p>
+
+<h2 id="compativel">5. O que fazer no modo compatível</h2>
+<ol>
+  <li><strong>Abrir/atualizar:</strong> carregue em <strong>Selecionar pasta (modo compatível)</strong> (ou <strong>Atualizar</strong>) e escolha a pasta <code>RegistoGravidas</code>. O Edge pode perguntar se quer "carregar" os ficheiros — confirme: <em>nada sai do PC</em>, a página apenas os lê.</li>
+  <li><strong>Gravar:</strong> ao gravar, é descarregado um ficheiro com um nome como <code>2026-10-03T09-15-02-123Z_pcabc…_….json</code> para a pasta <em>Transferências</em>. A aplicação mostra o caminho exato de destino, por exemplo <code>RegistoGravidas\data\events\2026\10\</code>.</li>
+  <li><strong>Mover</strong> esse ficheiro (cortar e colar) para essa pasta. Se a subpasta do ano/mês não existir, pode criá-la — ou colar diretamente em <code>RegistoGravidas\data\events\</code> (qualquer subpasta dentro de <code>events</code> serve).</li>
+  <li>Carregue em <strong>Atualizar</strong> e selecione de novo a pasta. A alteração passa a "confirmada".</li>
+  <li>Enquanto não mover os ficheiros, aparece um aviso amarelo <strong>"alterações ainda não confirmadas"</strong> com a lista e um botão <strong>Descarregar de novo</strong>. A alteração fica guardada neste PC até ser confirmada, mas <strong>os colegas só a veem depois de o ficheiro estar na pasta</strong>.</li>
+  <li><strong>Importação no modo compatível:</strong> é descarregado um ficheiro <code>.zip</code>. Clique com o botão direito › <strong>Extrair tudo…</strong> e indique como destino <code>RegistoGravidas\data\events</code>.</li>
+</ol>
+<div class="box info"><p><strong>Dica:</strong> nas definições do Edge (<em>Definições › Transferências</em>) pode ativar <strong>"Perguntar onde guardar cada ficheiro"</strong> e guardar diretamente em <code>RegistoGravidas\data\events</code>, sem ter de mover depois.</p></div>
+<p>Não altere o nome nem o conteúdo dos ficheiros descarregados.</p>
+
+<h2 id="dia">6. Utilização diária</h2>
+<ul>
+  <li><strong>Registos:</strong> tabela com pesquisa por nome ou n.º SNS, filtros (unidade, contactada, estado, com conflito, para rever, curso a começar nas próximas N semanas) e ordenação (clique no cabeçalho da coluna). <strong>Exportar vista para CSV</strong> gera um ficheiro para o Excel com o que está filtrado.</li>
+  <li><strong>Nova grávida:</strong> Nome e DUM são obrigatórios. A DPP é calculada automaticamente (DUM + 280 dias) mas pode ser alterada. A idade gestacional e a janela do curso (28 a 32 semanas) são calculadas e não se escrevem. Datas no formato <strong>dd/mm/aaaa</strong>.</li>
+  <li>O formulário só fecha quando a gravação é confirmada. Se algo falhar, nada se perde: pode tentar de novo ou guardar por descarga.</li>
+  <li><strong>A contactar:</strong> grávidas ativas ainda não contactadas cuja janela do curso começa nas próximas 4 semanas (e, à parte, as que já estão dentro da janela). Tem um botão <strong>Marcar contactada</strong>.</li>
+  <li><strong>Alterações recentes</strong> mostra quem alterou o quê. Os registos <strong>Novo</strong>/<strong>Alterado</strong> mudaram (por outra pessoa) desde a sua última visita.</li>
+  <li>Em cada registo há o <strong>Histórico</strong> completo: quem, quando, campo, valor antes e depois.</li>
+  <li><strong>Arquivar</strong> em vez de apagar: o registo deixa de aparecer nas listas (filtro Estado › Todos para o ver) e pode ser <strong>Restaurado</strong>. Nada é apagado.</li>
+</ul>
+
+<h2 id="importar">7. Importar o Excel (uma vez, por uma pessoa)</h2>
+<ol>
+  <li>Abra o separador <strong>Importar Excel</strong> e escolha o ficheiro Excel original (folha <em>Grávidas 2026</em>).</li>
+  <li>Veja a <strong>pré-visualização</strong>: número de registos novos, duplicados (mesmo n.º SNS — não são importados de novo) e avisos.</li>
+  <li>Valores fora das listas (p.ex. uma unidade desconhecida) são importados na mesma e o registo fica marcado <strong>Rever</strong>. Abra-o, corrija se necessário e marque "Revisto".</li>
+  <li>Carregue em <strong>Importar</strong>. Se repetir a importação do mesmo ficheiro, os registos já existentes são detetados como duplicados.</li>
+</ol>
+<p>Depois de importado e verificado, guarde o Excel antigo num local seguro (ou apague-o) e deixe de o usar.</p>
+
+<h2 id="conflitos">8. Resolver conflitos</h2>
+<p>Se duas pessoas alterarem <em>o mesmo campo do mesmo registo</em> sem verem a alteração uma da outra (por exemplo, um PC esteve offline), o registo fica marcado <strong>Conflito</strong> (separador Registos mostra o número; use o filtro "Só com conflito").</p>
+<ol>
+  <li>Abra o registo. No topo aparece a caixa <strong>Conflito: alterações simultâneas</strong> com as duas versões, quem as fez e quando.</li>
+  <li>Escolha o valor correto de cada campo (fale com o colega, se necessário).</li>
+  <li>Carregue em <strong>Resolver conflito</strong>. A resolução fica no histórico.</li>
+</ol>
+<p>Alterações a campos <em>diferentes</em> do mesmo registo não criam conflito: ficam ambas.</p>
+
+<h2 id="consolidar">9. Consolidar</h2>
+<p>Cada alteração é um pequeno ficheiro. Com o tempo são muitos, e a aplicação demora mais a abrir. <strong>Consolidar</strong> grava um resumo (snapshot) com o estado de todos os registos. Faça-o, por exemplo, <strong>uma vez por mês</strong> (basta uma pessoa, de preferência em modo completo).</p>
+<ul>
+  <li>Separador <strong>Consolidar</strong> › <strong>Consolidar agora</strong>. Não apaga nada.</li>
+  <li>Opcional (só no modo completo): <strong>Mover para data/archive</strong> os eventos incluídos num snapshot com mais de 90 dias. São copiados para <code>data\archive</code>, verificados, e só depois retirados de <code>data\events</code>.</li>
+  <li>No modo compatível, o snapshot é descarregado: mova-o para <code>RegistoGravidas\data\snapshots\</code>.</li>
+</ul>
+
+<h2 id="regras">10. Regras importantes</h2>
+<ul>
+  <li><strong>Não abra, altere, apague, mova nem mude o nome</strong> de ficheiros dentro de <code>data</code> (exceto mover para lá os ficheiros descarregados no modo compatível).</li>
+  <li>Cópias criadas pelo OneDrive com o nome do PC no fim (conflitos de sincronização) não causam problemas: a aplicação deteta duplicados.</li>
+  <li>Os ficheiros CSV exportados contêm <strong>dados pessoais</strong>: não os envie por email nem os guarde fora de locais autorizados; apague-os quando já não forem necessários.</li>
+  <li>Não deixe a aplicação aberta num PC sem sessão bloqueada.</li>
+  <li>No modo compatível, até serem confirmadas, as alterações ficam também guardadas no browser deste PC.</li>
+</ul>
+
+<h2 id="problemas">11. Resolução de problemas</h2>
+<ul>
+  <li>Separador <strong>Diagnóstico</strong>: mostra o browser, as capacidades disponíveis, o modo, a última leitura, o número de eventos lidos e os ficheiros ignorados (e porquê). O botão <strong>Copiar diagnóstico</strong> copia este resumo (sem dados de grávidas) para enviar a quem dá suporte.</li>
+  <li><strong>"Ficheiro ignorado: JSON incompleto"</strong>: normalmente o OneDrive ainda está a sincronizar. A aplicação tenta de novo na leitura seguinte.</li>
+  <li><strong>Não vejo as alterações de um colega</strong>: verifique o ícone do OneDrive na barra de tarefas (sincronização em pausa ou com erro?) e se o colega está em modo compatível com ficheiros por mover.</li>
+  <li><strong>A pasta deixou de abrir</strong>: em Diagnóstico, use <strong>Esquecer pasta</strong> e escolha-a de novo.</li>
+  <li><strong>"Criado por uma versão mais recente da aplicação"</strong>: alguém usou um <code>index.html</code> mais recente. Use o <code>index.html</code> que está na pasta partilhada (não uma cópia antiga).</li>
+</ul>
+<p><a href="index.html">Abrir a aplicação</a></p>
+</main>
+</body>
+</html>
